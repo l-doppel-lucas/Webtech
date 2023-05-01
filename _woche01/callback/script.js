@@ -1,19 +1,19 @@
 function initMap() {
-    var myLatLng = {
-        lat: 47.41476,
-        lng: 9.314195
+    var home = {
+        lat: 47.40584,
+        lng: 9.45968
     };
 
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
-        center: myLatLng
+        center: home
     });
 
     // Set ein Marker in die position setzen    
     var marker = new google.maps.Marker({
-        position: myLatLng,
+        position: home,
         map: map,
-        title: 'Hello World!'
+        title: "That's where Lucas lives!"
     });
 
     // Callback Funktion auslösen verwendet Parameter
