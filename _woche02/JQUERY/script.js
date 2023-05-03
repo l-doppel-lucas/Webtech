@@ -42,9 +42,22 @@ $(document).ready(function () {
         })
     });
 
+    //Json Holen und in Konsole ausgeben
     $.getJSON("generated.json", function(data){
         console.log(data);
     });
 
+    //Json Holen mit AJAX
+    $.ajax({
+        type: 'GET',
+        url: 'generated.json',
+        dataType: 'json',
+        success: function(data){
+            console.log(data);
+        },
+        error: function(){
+            console.log('Error')
+        }
+    });
 
 });
