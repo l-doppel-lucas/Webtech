@@ -1,3 +1,5 @@
+console.log('index.js loaded')
+
 $("nav").load('./helper/nav.html', function(){
     $.getScript('./js/nav.js')
 });
