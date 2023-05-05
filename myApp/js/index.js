@@ -13,4 +13,4 @@ $.ajax({
             success: function(data){
                 $("main").html(data);
             },
-})
+});
