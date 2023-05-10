@@ -1,3 +1,7 @@
-console.log('HOME.js loaded')
+console.log('HOME.JS geladen');
 
-$(".Button")
+$('#homeClick').on('click', function (e) {
+    e.preventDefault();
+    console.log('homeClick');
+    $('#test').append('<br>- homeClick');
+});

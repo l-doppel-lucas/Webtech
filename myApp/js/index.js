@@ -1,22 +1,11 @@
-console.log('index.js loaded')
+console.log('index.js loaded');
+$("footer").load('./helper/footer.html');
+$("header").load('./helper/header.html');
 
 $("nav").load('./helper/nav.html', function(){
     $.getScript('./js/nav.js');
 });
 
-$("footer").load('./helper/footer.html', function(){
-    $.getScript('./js/footer.js');
-});
-
-$("header").load('./helper/header.html', function(){
-    $.getScript('./js/header.js');
-});
-
-$.getScript('./js/HOME.js');
-
-$.getScript('./js/ABOUT.js');
-
-$.getScript('./js/CONTACT.js');
 
 let date = Date.now();
 
@@ -26,5 +15,6 @@ $.ajax({
             dataType: "html",
             success: function(data){
                 $("main").html(data);
+                $.getScript('./js/home.js');
             },
 });
