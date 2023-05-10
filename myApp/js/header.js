@@ -1,1 +1,1 @@
-console.log('header.js loaded')
+console.log('header.js loaded');

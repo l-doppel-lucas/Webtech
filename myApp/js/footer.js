@@ -1,1 +1,1 @@
-console.log('footer.js loaded')
+console.log('footer.js loaded');
