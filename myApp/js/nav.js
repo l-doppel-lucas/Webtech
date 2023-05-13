@@ -10,6 +10,7 @@ $("li").on('click', function(){
         dataType: "html",
         success: function(data){
             $("main").html(data);
+            $.getScript('./js/' + page + '.js?' + date);
         },
     });
 });

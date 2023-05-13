@@ -1,1 +1,1 @@
-console.log('about.js loaded')
+console.log('ABOUT.js loaded')
