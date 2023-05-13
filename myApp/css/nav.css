@@ -1,7 +1,16 @@
 nav ul {
-    list-style-type: none;
+    list-style: none;
+    /* justify-content: space-around; */
+    background-color: #f1f1f1;
+    padding: 0;
+    margin-right: 20px;
 }
 
 nav li {
-    margin-bottom: 25px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+nav li:hover {
+    background-color: #ddd;
 }

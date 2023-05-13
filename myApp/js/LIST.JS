@@ -12,3 +12,24 @@ $(".delete").on('click', function () {
     console.log('delete: ' + id);
 });
 
+$("tbody tr").hover(function(){
+    $(this).addClass('greyHover');
+}, function() {
+    $(this).removeClass('greyHover');
+});
+
+$('button').hover(function () {
+    $(this).addClass('pointer');
+
+}, function () {
+    $(this).removeClass('pointer');
+}
+);
+
+
+$("#search").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tbody tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+});
