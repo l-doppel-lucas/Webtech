@@ -1,1 +1,1 @@
-console.log('CONTACT.js loaded')
+console.log('CONTACT.JS geladen');

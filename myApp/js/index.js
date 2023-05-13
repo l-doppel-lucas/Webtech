@@ -1,20 +1,21 @@
-console.log('index.js loaded');
-$("footer").load('./helper/footer.html');
-$("header").load('./helper/header.html');
+console.log('index.JS geladen');
+let date = Date.now();
 
-$("nav").load('./helper/nav.html', function(){
-    $.getScript('./js/nav.js');
+$(".header").load("sites/header.html?" + date);
+$(".footer").load("sites/footer.html?" + date);
+
+
+$(".aside").load("sites/aside.html?" + date, () => {
+    $.getScript('./js/aside.js?' + date);
 });
 
 
-let date = Date.now();
-
 $.ajax({
-    method:"GET",
-            url: "./helper/HOME.html?" + date,
-            dataType: "html",
-            success: function(data){
-                $("main").html(data);
-                $.getScript('./js/home.js');
-            },
+    method: "GET",
+    url: "sites/HOME.html?" + date,
+    dataType: "html",
+    success: function (data) {
+        $(".main").html(data);
+        $.getScript('./js/home.js?' + date);
+    },
 });
