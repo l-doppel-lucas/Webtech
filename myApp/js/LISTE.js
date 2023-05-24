@@ -11,10 +11,18 @@ $("#add").on('click', function () {
     });
 });
 
-$(".tanken").on('click', function () {
+$(".status").on('click', function () {
     let id = $(this).parent().parent().attr('data-id');
-    console.log('tanken: ' + id);
+    console.log('Status: ' + id);
+    console.log('Modal open and edit Status: ' + id);
+
+    $('#modal').modal('open');
+    $('#modal>div').load('sites/formular.html', function() {
+        $.get("js/formular.js");
+        $('#Title').html('Status des Eintrags mit der ID: ' + id + ' editieren')
+    });
 });
+
 $(".edit").on('click', function () {
     let id = $(this).parent().parent().attr('data-id');
     console.log('edit: ' + id);
