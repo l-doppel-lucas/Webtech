@@ -1,6 +1,8 @@
 console.log('index.JS geladen');
 let date = Date.now();
 
+$('#modal').modal();
+
 $(".header").load("sites/header.html?" + date);
 $(".footer").load("sites/footer.html?" + date);
 

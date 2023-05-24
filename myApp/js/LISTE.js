@@ -2,7 +2,15 @@ console.log('LISTE.JS geladen');
 
 $("#add").on('click', function () {
     console.log('add');
+    console.log('Modal open and add');
+
+    $('#modal').modal('open');
+    $('#modal>div').load('sites/formular.html', function() {
+        $.get("js/formular.js");
+        $('#Title').html('Eintrag hinzufügen')
+    });
 });
+
 $(".tanken").on('click', function () {
     let id = $(this).parent().parent().attr('data-id');
     console.log('tanken: ' + id);
@@ -10,7 +18,15 @@ $(".tanken").on('click', function () {
 $(".edit").on('click', function () {
     let id = $(this).parent().parent().attr('data-id');
     console.log('edit: ' + id);
+    console.log('Modal open and edit: ' + id);
+
+    $('#modal').modal('open');
+    $('#modal>div').load('sites/formular.html', function() {
+        $.get("js/formular.js");
+        $('#Title').html('Eintrag mit der ID: ' + id + ' editieren')
+    });
 });
+
 $(".delete").on('click', function () {
     let id = $(this).parent().parent().attr('data-id');
     console.log('delete: ' + id);
@@ -51,7 +67,3 @@ $("#search").on("keyup", function () {
 // https://github.com/Mottie/tablesorter?utm_source=cdnjs&utm_medium=cdnjs_link&utm_campaign=cdnjs_library
 // Sortieren
 $("#myTable").tablesorter();
-
-
-
-
