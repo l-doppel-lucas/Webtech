@@ -1,5 +1,6 @@
 console.log("formular.js geladen");
 
+$('#fach').formSelect();
 
 $('#status').formSelect();
 //set heute in Datumsfeld

@@ -1,5 +1,10 @@
 console.log('LISTE.JS geladen');
 
+$.getJSON("db/data.json", function(response){
+    console.log(response);
+});
+
+
 $("#add").on('click', function () {
     console.log('add');
     console.log('Modal open and add');

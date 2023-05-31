@@ -1,0 +1,32 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "startdate": "08.05.2023",
+            "enddate": "18.06.2023",
+            "fach": "VR (Virtual Reality",
+            "aufgaben": "Exposé umschreiben <br>Didaktisch-Methodisches Konzept fertig <br>Aufbau Präsentation fertig",
+            "status": 2
+
+        },
+        {
+            "id": 2,
+            "startdate": "20.04.2023",
+            "enddate": "15.05.2023",
+            "fach": "Videobearbeitung",
+            "aufgaben": "S. 8 - 16 durcharbeiten<br>Storyboardbilder heraussuchen (ca. 20 Bilder)<br>Handout für Kamera erstellen",
+            "status": 3
+
+        },
+        {
+            "id": 3,
+            "startdate": "08.05.2023",
+            "enddate": "26.05.2023",
+            "fach": "Requirements-Engineering",
+            "aufgaben": "Aufgaben 1-8 der Fallstudie<br>Vorbereitung Powerpoint",
+            "status": 2
+
+        }
+    ]
+
+}
