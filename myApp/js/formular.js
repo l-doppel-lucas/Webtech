@@ -1,3 +1,5 @@
+console.log("formular.js geladen");
+
 
 $('#status').formSelect();
 //set heute in Datumsfeld
@@ -12,6 +14,9 @@ var string = today.getDate() + "." + month + "." + today.getFullYear();
 // var str = today.toISOString();
 
 $('#startdate').val(string);
+
+$('#enddate').val(string);
+
 
 $('.datepicker').datepicker({
     format: 'dd.mm.yyyy',
