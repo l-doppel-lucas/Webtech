@@ -5,6 +5,28 @@
 <form id="myForm" action="#!" method="post" class="row">
 
     <div class="input-field col s12 m6 l4 xl3">
+
+        <input type="text" class="datepicker" id="startdate">
+       
+    </div>
+
+    <div class="input-field col s12 m6 l4 xl3">
+
+        <input type="text" class="datepicker" id="enddate">
+       
+    </div>
+
+    <div class="input-field col s12 m6 l4 xl3">
+        <select id="fach">
+            <option value="" disabled selected>Fach ausw&auml;hlen</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+          <label>Status</label>
+    </div>
+
+    <div class="input-field col s12 m6 l4 xl3">
         <input id="first_name" name="first_name" type="text" class="validate" maxlength="255" minlength="1">
         <label for="first_name">First Name</label>
     </div>
@@ -29,21 +51,7 @@
         <label for="tel">Telefon</label>
     </div>
 
-    <div class="input-field col s12 m6 l4 xl3">
-        <select id="status">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
-          </select>
-          <label>Status</label>
-    </div>
-   
-    <div class="input-field col s12 m6 l4 xl3">
 
-     <input type="text" class="datepicker" id="startdate">
-    
-    </div>
 
     <div class="input-field col s6">
         <input type="" value="cancel" id="cancel" name="cancel" class="btn red" style="width: 100%;">
