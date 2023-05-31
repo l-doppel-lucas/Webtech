@@ -78,6 +78,20 @@ $.get('templates/form.hbs', function(template){
         }
         );
 
+        // $('.edit').hide();
+        // $('.delete').hide();
+
+
+        // $('tbody tr').on('taphold', function(){
+        //     console.log('taphold');
+        // })
+        // .on('swipeleft', function (){
+        //     $(this, '.edit').find('.edit').show('slow');
+        // })
+        // .on('swiperight', function(){
+        //     $(this, '.delete').find('.delete').show('slow');
+        // })
+
     });
 
 });
