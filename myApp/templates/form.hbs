@@ -1,0 +1,39 @@
+<table id="myTable" class="striped z-depth-2 tablesorter">
+  <thead class="orange darken-4 white-text">
+    <tr>
+        <th>ID</th>
+        <th>Erhalten am <br/>(Datum, wann der Eintrag gemacht wird)</th>
+        <th>Abgabedatum (Datepicker)</th>
+        <th>Fach (Dropdown)</th>
+        <th>Aufgaben</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each data}}
+    <tr data-id="{{id}}">
+        <td>{{id}}</td>
+        <td>{{startdate}}</td>
+        <td>{{enddate}}</td>
+        <td>{{fach}}</td>
+        <td>{{{aufgaben}}}</td>
+        <td>{{status}}</td>
+        <td>
+            <button class="edit">
+                <i class="material-icons" style="vertical-align: middle">edit</i>
+                <span style="vertical-align: middle">edit</span>
+            </button>
+            <button class="status">
+                <i class="material-icons" style="vertical-align: middle">edit</i>
+                <span style="vertical-align: middle">status anpassen</span>
+            </button>
+            <button class="delete">
+                <i class="material-icons" style="vertical-align: middle">delete</i>
+                <span style="vertical-align: middle">erledigt</span>
+            </button>
+        </td>
+    </tr>
+    {{/each}}
+    </tbody>
+</table>
