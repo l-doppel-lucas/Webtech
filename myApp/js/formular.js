@@ -14,24 +14,43 @@ $('#fach').formSelect();
 
 $('#status').formSelect();
 //set heute in Datumsfeld
-var today = new Date();
-if (today.getMonth() < 10){
-    var month = "0" + (today.getMonth() + 1);
-} else {
-    var month = today.getMonth() + 1;
-}
-var string = today.getDate() + "." + month + "." + today.getFullYear();
+// var today = new Date();
+// var todparts = today.split('.');
+var mytoday = new Date();
 
 // var str = today.toISOString();
 
-$('#startdate').val(string);
+$('#startdate').val(mytoday);
 
-$('#enddate').val(string);
+$('#enddate').val(mytoday);
 
-
-$('.datepicker').datepicker({
+$('#enddate').datepicker({
     format: 'dd.mm.yyyy',
-    setDefaulDate: true,
+    setDefaultDate: true,
+    firstDay: 1,    
+    i18n: {
+        labelMonthNext: 'Nexter Monat',
+        labelMonthPrev: 'Vorheriger Monat',
+        labelMonthSelect: 'Monat wählen',
+        labelYearSelect: 'Jahr wählen',
+        months: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+        monthsShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+        monthsLong: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+        weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+        weekdaysShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+        weekdaysAbbrev: ['S', 'M', 'D', 'M', 'D', 'F', 'S'],
+        today: 'Heute',
+        close: 'schliessen',
+        cancel: 'abbrechen',
+        clear: 'löschen',
+        done: 'wählen'
+    },
+});
+
+
+$('#startdate').datepicker({
+    format: 'dd.mm.yyyy',
+    setDefaultDate: true,
     firstDay: 1,    
     i18n: {
         labelMonthNext: 'Nexter Monat',

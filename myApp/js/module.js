@@ -48,7 +48,71 @@ onValue(starCountRef, (snapshot) => {
                 $('#modal').modal('open');
                 $('#modal>div').load('sites/formular.html', function() {
                     //$.get("js/formular.js");
-                    $('#Title').html('Eintrag mit der ID: ' + id + ' editieren')
+                    $('#Title').html('Eintrag mit der ID: ' + id + ' editieren');
+
+                    let enddate = data.data[id].enddate;
+                    var endparts = enddate.split('.');
+                    var myenddate = new Date(endparts[2], endparts[1] -1, endparts[0]);
+                    $('#enddate').val(myenddate);
+                    console.log(myenddate);
+                    $('#enddate').datepicker({
+                        format: 'dd.mm.yyyy',
+                        setDefaultDate: true,
+                        firstDay: 1,    
+                        i18n: {
+                            labelMonthNext: 'Nexter Monat',
+                            labelMonthPrev: 'Vorheriger Monat',
+                            labelMonthSelect: 'Monat wählen',
+                            labelYearSelect: 'Jahr wählen',
+                            months: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                            monthsShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                            monthsLong: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                            weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                            weekdaysShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                            weekdaysAbbrev: ['S', 'M', 'D', 'M', 'D', 'F', 'S'],
+                            today: 'Heute',
+                            close: 'schliessen',
+                            cancel: 'abbrechen',
+                            clear: 'löschen',
+                            done: 'wählen'
+                        },
+                    });
+
+                    let startdate = data.data[id].startdate;
+                    var startparts = startdate.split('.');
+                    var mystartdate = new Date(startparts[2], startparts[1] -1, startparts[0]);
+                    $('#startdate').val(mystartdate);
+                    $('#startdate').datepicker({
+                        format: 'dd.mm.yyyy',
+                        setDefaultDate: true,
+                        firstDay: 1,    
+                        i18n: {
+                            labelMonthNext: 'Nexter Monat',
+                            labelMonthPrev: 'Vorheriger Monat',
+                            labelMonthSelect: 'Monat wählen',
+                            labelYearSelect: 'Jahr wählen',
+                            months: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                            monthsShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                            monthsLong: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                            weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                            weekdaysShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                            weekdaysAbbrev: ['S', 'M', 'D', 'M', 'D', 'F', 'S'],
+                            today: 'Heute',
+                            close: 'schliessen',
+                            cancel: 'abbrechen',
+                            clear: 'löschen',
+                            done: 'wählen'
+                        },
+                    });
+
+                    $('#fach').val(data.data[id].fach);
+                    $('#aufgaben').val(data.data[id].aufgaben);
+                    $('#status').val(data.data[id].status);
+
+                    M.updateTextFields();
+                    $('#enddate').addClass('valid');
+                    $('#startdate').addClass('valid');
+                    $('#aufgaben').addClass('valid');
                 });
             });
     
@@ -61,7 +125,81 @@ onValue(starCountRef, (snapshot) => {
                 $('#modal>div').load('sites/formular.html', function() {
                     //$.get("js/formular.js");
                     $('#Title').html('Status des Eintrags mit der ID: ' + id + ' editieren')
-                });
+
+                    let enddate = data.data[id].enddate;
+                    var endparts = enddate.split('.');
+                    var myenddate = new Date(endparts[2], endparts[1] -1, endparts[0]);
+                    $('#enddate').val(myenddate);
+                    console.log(myenddate);
+                    $('#enddate').datepicker({
+                        format: 'dd.mm.yyyy',
+                        setDefaultDate: true,
+                        firstDay: 1,    
+                        i18n: {
+                            labelMonthNext: 'Nexter Monat',
+                            labelMonthPrev: 'Vorheriger Monat',
+                            labelMonthSelect: 'Monat wählen',
+                            labelYearSelect: 'Jahr wählen',
+                            months: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                            monthsShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                            monthsLong: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                            weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                            weekdaysShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                            weekdaysAbbrev: ['S', 'M', 'D', 'M', 'D', 'F', 'S'],
+                            today: 'Heute',
+                            close: 'schliessen',
+                            cancel: 'abbrechen',
+                            clear: 'löschen',
+                            done: 'wählen'
+                        },
+                    });
+
+                    let startdate = data.data[id].startdate;
+                    var startparts = startdate.split('.');
+                    var mystartdate = new Date(startparts[2], startparts[1] -1, startparts[0]);
+                    $('#startdate').val(mystartdate);
+                    $('#startdate').datepicker({
+                        format: 'dd.mm.yyyy',
+                        setDefaultDate: true,
+                        firstDay: 1,    
+                        i18n: {
+                            labelMonthNext: 'Nexter Monat',
+                            labelMonthPrev: 'Vorheriger Monat',
+                            labelMonthSelect: 'Monat wählen',
+                            labelYearSelect: 'Jahr wählen',
+                            months: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                            monthsShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                            monthsLong: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                            weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                            weekdaysShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                            weekdaysAbbrev: ['S', 'M', 'D', 'M', 'D', 'F', 'S'],
+                            today: 'Heute',
+                            close: 'schliessen',
+                            cancel: 'abbrechen',
+                            clear: 'löschen',
+                            done: 'wählen'
+                        },
+                    });
+
+                    $('#fach').val(data.data[id].fach);
+                    $('#fach').prop('disabled', true);
+
+                    $('#aufgaben').val(data.data[id].aufgaben);
+                    $('#aufgaben').prop('disabled', true);
+
+                    $('#status').val(data.data[id].status);
+
+
+                    M.updateTextFields();
+                    $('#enddate').addClass('valid');
+                    $('#enddate').prop('disabled', true);
+
+                    $('#startdate').addClass('valid');
+                    $('#startdate').prop('disabled', true);
+
+                    $('#aufgaben').addClass('valid');
+
+                });                
             });
             
             $(".delete").on('click', function () {
