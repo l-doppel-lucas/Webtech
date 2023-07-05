@@ -7,7 +7,8 @@ import {
     getDatabase,
     ref,
     onValue,
-
+    remove,
+    update,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js';
 
 const firebaseConfig = {
@@ -21,8 +22,8 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getDatabase();
-const starCountRef = ref(db, '/');
+export const db = getDatabase();
+export const starCountRef = ref(db, '/');
 
 
 
@@ -39,14 +40,14 @@ onValue(starCountRef, (snapshot) => {
         //HTML in Seite einfügen
         $('#tableData').html(html);
 
-                    $(".edit").on('click', function () {
+            $(".edit").on('click', function () {
                 let id = $(this).parent().parent().attr('data-id');
                 console.log('edit: ' + id);
                 console.log('Modal open and edit: ' + id);
             
                 $('#modal').modal('open');
                 $('#modal>div').load('sites/formular.html', function() {
-                    $.get("js/formular.js");
+                    //$.get("js/formular.js");
                     $('#Title').html('Eintrag mit der ID: ' + id + ' editieren')
                 });
             });
@@ -58,7 +59,7 @@ onValue(starCountRef, (snapshot) => {
             
                 $('#modal').modal('open');
                 $('#modal>div').load('sites/formular.html', function() {
-                    $.get("js/formular.js");
+                    //$.get("js/formular.js");
                     $('#Title').html('Status des Eintrags mit der ID: ' + id + ' editieren')
                 });
             });
@@ -66,6 +67,8 @@ onValue(starCountRef, (snapshot) => {
             $(".delete").on('click', function () {
                 let id = $(this).parent().parent().attr('data-id');
                 console.log('delete: ' + id);
+                //remove(ref(db, 'data/' + id));
+                update(ref(db, 'data/' + id), {status: 'erledigt'});
             });
     
             // Suchfunktion
@@ -101,6 +104,8 @@ onValue(starCountRef, (snapshot) => {
                 $(this).removeClass('grey cell');
             }
             );
+
+
     
             // $('.edit').hide();
             // $('.delete').hide();
@@ -126,7 +131,7 @@ onValue(starCountRef, (snapshot) => {
     
         $('#modal').modal('open');
         $('#modal>div').load('sites/formular.html', function() {
-            $.get("js/formular.js");
+            //$.get("js/formular.js");
             $('#Title').html('Eintrag hinzufügen')
         });
     });

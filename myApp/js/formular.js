@@ -1,5 +1,15 @@
 console.log("formular.js geladen");
 
+import{
+    db,
+} from './module.js';
+
+import {
+    push,
+    ref,
+} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js';
+
+
 $('#fach').formSelect();
 
 $('#status').formSelect();
@@ -67,8 +77,23 @@ $('#cancel').on('click', function(e){
 //Formular auslesen
 $('#myForm').on('submit', function (e) {
     e.preventDefault();
-    let formData = $('#myForm').serializeArray();
-    console.log(formData);
-    var data = $('#myForm').serialize();
-    console.log(data);
+    var modal = M.Modal.getInstance($('#modal'));
+
+    // eingegebene Daten in Array schreiben
+    // let formData = $('#myForm').serializeArray();
+    // console.log(formData);
+    // var data = $('#myForm').serialize();
+    // console.log(data);
+
+    // Daten aus Formular auslesen, in Array schreiben und in DB "Pushen"
+    let startdate = $('#startdate').val();
+    let enddate = $('#enddate').val();
+    let fach = $('#fach').val();
+    let aufgaben = $('#aufgaben').val();
+    let status = $('#status').val();
+
+    let array = {startdate: startdate, enddate: enddate, fach: fach, aufgaben: aufgaben, status: status }
+
+    push(ref(db, 'data/'), array);
+    modal.close();
 });

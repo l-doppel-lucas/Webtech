@@ -20,11 +20,14 @@
     </div>
 
     <div class="input-field col s12 m6 l4 xl3">
-        <select id="fach">
+        <select id="fach" name="fach">
             <option value="" disabled selected>Fach ausw&auml;hlen</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
+            <option value="FIC">FIC</option>
+            <option value="RE">RE</option>
+            <option value="TGT">TGT</option>
+            <option value="VGT">VGT</option>
+            <option value="VR">VR</option>
+            <option value="WTA">WTA</option>
           </select>
           <label>Fach</label>
     </div>
@@ -35,11 +38,11 @@
     </div>
 
     <div class="input-field col s12 m6 l4 xl3">
-        <select id="status">
+        <select id="status" name="status">
             <option value="" disabled selected>Status ausw&auml;hlen</option>
-            <option value="1">Offen</option>
-            <option value="2">in Arbeit</option>
-            <option value="3">Erledigt</option>
+            <option value="Offen">Offen</option>
+            <option value="in Arbeit">in Arbeit</option>
+            <option value="Erledigt">Erledigt</option>
           </select>
           <label>Status</label>
     </div>
@@ -53,3 +56,5 @@
     </div>
 
 </form>
+
+<script type="module" src="js/formular.js"></script>
