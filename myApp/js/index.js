@@ -21,3 +21,19 @@ $.ajax({
         $.getScript('./js/home.js?' + date);
     },
 });
+
+const cookieBanner = document.getElementById("cookie-banner");
+const cookieAccepted = document.getElementById("accept-cookies");
+
+const hideCookieBanner = () => cookieBanner.classList.add("hide");
+
+cookieAccepted.addEventListener("click", () => {
+    hideCookieBanner();
+    localStorage.setItem("cookieBannerDisplayed", "true");
+});
+
+setTimeout(() => {
+    if (!localStorage.getItem("cookieBannerDisplayed")){
+        cookieBanner.classList.remove("hide");
+    }
+}, 1000);

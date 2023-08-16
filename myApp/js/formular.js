@@ -113,6 +113,12 @@ $('#myForm').on('submit', function (e) {
 
     let array = {startdate: startdate, enddate: enddate, fach: fach, aufgaben: aufgaben, status: status }
 
-    push(ref(db, 'data/'), array);
-    modal.close();
+    push(ref(db, 'data/'), array)
+    .then(() => {
+        M.toast({html: 'ok', classes: 'rounded green'});
+        modal.close();
+    })
+    .catch(() => {
+        M.toast({html: 'err', classes: 'rounded red'})
+    });
 });

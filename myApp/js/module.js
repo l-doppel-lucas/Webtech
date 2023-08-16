@@ -11,6 +11,13 @@ import {
     update,
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js';
 
+import {
+    getAuth,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword
+} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
+
 const firebaseConfig = {
     apiKey: "AIzaSyDNU08M2rAjEg4M5IlXfmuOWtx-1SIHw0E",
     authDomain: "myapp-90a56.firebaseapp.com",
@@ -263,13 +270,26 @@ onValue(starCountRef, (snapshot) => {
 
 });
 
-    $("#add").on('click', function () {
-        console.log('add');
-        console.log('Modal open and add');
+$("#add").on('click', function () {
+    console.log('add');
+    console.log('Modal open and add');
     
-        $('#modal').modal('open');
-        $('#modal>div').load('sites/formular.html', function() {
-            //$.get("js/formular.js");
-            $('#Title').html('Eintrag hinzufügen')
-        });
+    $('#modal').modal('open');
+    $('#modal>div').load('sites/formular.html', function() {
+        //$.get("js/formular.js");
+        $('#Title').html('Eintrag hinzufügen')
     });
+});
+
+
+const auth = getAuth(app);
+
+onAuthStateChanged(auth, (user) =>{
+    if (user != null){
+        console.log('logged in:');
+        console.log(user);
+        const uid = user.uid;
+    }else{
+        console.log('no User')
+    }
+})
