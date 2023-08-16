@@ -206,7 +206,7 @@ onValue(starCountRef, (snapshot) => {
                 let id = $(this).parent().parent().attr('data-id');
                 console.log('delete: ' + id);
                 //remove(ref(db, 'data/' + id));
-                update(ref(db, 'data/' + id), {status: 'erledigt'});
+                update(ref(db, 'data/' + id), {status: 'Erledigt'});
             });
     
             // Suchfunktion
