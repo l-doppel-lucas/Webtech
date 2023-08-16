@@ -13,9 +13,6 @@ import {
 
 import {
     getAuth,
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 
 const firebaseConfig = {
@@ -31,7 +28,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase();
 export const starCountRef = ref(db, '/');
-
+export const auth = getAuth(app);
 
 
 onValue(starCountRef, (snapshot) => {
@@ -282,14 +279,15 @@ $("#add").on('click', function () {
 });
 
 
-const auth = getAuth(app);
 
-onAuthStateChanged(auth, (user) =>{
-    if (user != null){
-        console.log('logged in:');
-        console.log(user);
-        const uid = user.uid;
-    }else{
-        console.log('no User')
-    }
-})
+// onAuthStateChanged(auth, (user) =>{
+//     if (user != null){
+//         console.log('logged in:');
+//         console.log(user);
+//         const uid = user.uid;
+//     }else{
+//         console.log('no User')
+//     }
+// })
+
+
